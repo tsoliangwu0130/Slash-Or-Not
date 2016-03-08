@@ -8,7 +8,8 @@ import requests
 import re
 
 while True:
-	course = raw_input('Enter Course Number ("quit" to leave): ')
+	slashMsg = "Does not meet Graduate School's stand-alone requirement."
+	course = raw_input('Enter Course Number (e.g: CS544) or Enter "quit" to Leave: ')
 
 	if course == 'quit':
 		exit()
@@ -22,7 +23,10 @@ while True:
 		reqURL = "http://catalog.oregonstate.edu/CourseDetail.aspx?subjectcode="+subjectCode+"&coursenumber="+courseNum
 		resq = requests.get(reqURL)
 
-		if "Does not meet Graduate School's stand-alone requirement." in resq.text:
-			print "Warning! This is a Slash course!"
+		# See the course is Slash or not
+		if slashMsg in resq.text:
+			print "Warning! " + course + " is a Slash course!"
+		elif course in resq.text:
+			print "Safe! " + course + " is not a Slash course!"
 		else:
-			print "Safe! This is not a Slash course!"
+			print "Sorry, " + course + " is invalid course number."

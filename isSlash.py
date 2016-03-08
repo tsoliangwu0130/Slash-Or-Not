@@ -9,7 +9,7 @@ import re
 
 while True:
 	slashMsg = "Does not meet Graduate School's stand-alone requirement."
-	course = raw_input('Enter Course Number (e.g: CS544) or Enter "quit" to Leave: ')
+	course = raw_input('Enter Course Number (e.g. CS544) or Enter "quit" to Leave: ')
 
 	if course == 'quit':
 		exit()

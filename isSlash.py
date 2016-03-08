@@ -29,4 +29,4 @@ while True:
 		elif course in resq.text:
 			print "Safe! " + course + " is not a Slash course!"
 		else:
-			print "Sorry, " + course + " is invalid course number."
+			print "Sorry, " + course + " is an invalid course number."
